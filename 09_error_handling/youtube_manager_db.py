@@ -21,11 +21,11 @@ def add_video(name,time):
     conn.commit()
 
 def update_video(video_id,new_name,new_time):
-    conn.execute("UPDATE videos SET name = ? , time = ? WHERE id = ?",(new_name,new_time,video_id))
+    conn.execute("UPDATE videos SET name = ? , time = ? WHERE id = ?",(video_id,new_name,new_time))
     conn.commit()
 
 def delete_video(video_id):
-    conn.execute("DELETE FROM videos where id = ? ",(video_id,)) # imp put, then only it is consider as tuple 
+    conn.execute("DELETE FROM videos WHERE id = ? ",(video_id,)) # imp put, then only it is consider as tuple 
 
 def main():
     while True:
@@ -37,7 +37,7 @@ def main():
         print("5. Exit the app")
         choice = input("Enter the choice: ")
 
-        if choice =='1':
+        if choice == '1':
             list_video()
 
         elif choice == '2':
